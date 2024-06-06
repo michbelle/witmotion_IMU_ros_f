@@ -12,11 +12,16 @@ def generate_launch_description():
         'config',
         'wt31n.yml'
         )
+    
+    print(config)
         
     node=Node(
         package = 'witmotion_ros',
         executable = 'witmotion_ros_node',
-        parameters = [config]
+        name = "witmotion_ros",
+        # prefix=["sudo -E env \"PYTHONPATH=$PYTHONPATH\" \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH\" \"PATH=$PATH\" \"USER=$USER\"  /bin/bash -c "],
+        parameters = [config],
+        # shell=True
     )
 
     ld.add_action(node)
