@@ -16,6 +16,7 @@ def generate_launch_description():
     node=Node(
         package = 'witmotion_ros',
         executable = 'witmotion_ros_node',
+        name='witmotion_ros',
         parameters = [config]
     )
 

@@ -1,8 +1,8 @@
 witmotion_ros:
   ros__parameters:
-    port: ttyUSB3
+    port: ttyUSB0
     baud_rate: 115200 # baud
-    polling_interval: 10 # ms
+    polling_interval: 50 # ms
     timeout_ms: 150 # ms
     restart_service_name: /restart_imu
     imu_publisher:
@@ -20,10 +20,10 @@ witmotion_ros:
           enabled: true
           covariance: [0.0457, 0.0, 0.0, 0.0, 0.0655, 0.0, 0.0, 0.0, 0.0]
     temperature_publisher:
-      enabled: false
+      enabled: true
       topic_name: /temperature
       frame_id: base_link
-      from_message: magnetometer # acceleration, angular_vel, orientation, magnetometer
+      from_message: orientation # acceleration, angular_vel, orientation, magnetometer
       variance: 0.02683
       coefficient: 1.0 # Linear calibration parameters: coefficient
       addition: 0.0 # and addendum
@@ -58,7 +58,7 @@ witmotion_ros:
       coefficient: 1.0 # Linear calibration parameters: coefficient
       addition: 0.0 # and addendum
     orientation_publisher:
-      enabled: false
+      enabled: true
       topic_name: /orientation
     gps_publisher:
       enabled: false
